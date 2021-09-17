@@ -8,7 +8,7 @@ export default function Hero() {
                 We are digital crafters from New York. <br />
                 Our passion is <Heading as="p" display="inline">UI & UX</Heading> design & coding.
             </Text>
-            <Image src="/divider.png" alt="Section Divider" />
+            <Image src="/divider.png" alt="Divider" />
         </Container>
     )
 }

@@ -1,5 +1,5 @@
 import { Image } from "@chakra-ui/image";
-import { Box, Container, Flex, Button, useDisclosure, Heading } from "@chakra-ui/react";
+import { Box, Container, Flex, Button, useDisclosure, Heading, IconButton } from "@chakra-ui/react";
 import { useRouter } from "next/dist/client/router";
 import NextLink from "next/link"
 import {
@@ -11,6 +11,7 @@ import {
     DrawerContent,
     DrawerCloseButton,
 } from "@chakra-ui/react"
+import { RiMenu3Fill, RiCloseCircleFill } from "react-icons/ri"
 
 export default function Nav() {
     return (
@@ -19,7 +20,7 @@ export default function Nav() {
                 <Image h="70px" src="/logo.jpg" alt="Logo" />
                 <Flex listStyleType="none" fontWeight="medium">
                     <NavLinks />
-                    {/* <MobileDrawer /> */}
+                    <MobileDrawer />
                 </Flex>
             </Flex>
         </Container>
@@ -35,7 +36,7 @@ const NavLinks = () => {
             {paths.map((path, i) => {
                 const isActive = router.route === path || router.route === "/" && path === "Home"
                 return (
-                    <Box color={isActive ? "#939393" : "inherit"} key={i} _hover={{color: "#939393"}} mr="2.5rem">
+                    <Box display={["none", "none", "block"]} color={isActive ? "#939393" : "inherit"} key={i} _hover={{color: "#939393"}} mr="2.5rem">
                         <NextLink href={`/${path.toLowerCase()}`}>
                             {path}
                         </NextLink>
@@ -50,16 +51,14 @@ const MobileDrawer = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const router = useRouter()
     return (
-        <>
-            <Button colorScheme="blue" onClick={onOpen}>
-                Open
-            </Button>
+        <Box display={["block", "block", "none"]}>
+            <IconButton onClick={onOpen} bg="none" fontSize="32px" icon={<RiMenu3Fill />} />
             <Drawer onClose={onClose} isOpen={isOpen} size="full">
                 <DrawerOverlay />
                 <DrawerContent>
                     <DrawerBody>
                         <Flex justifyContent="end" mt="2rem">
-                            <Button onClick={onClose}>Close</Button>
+                            <IconButton onClick={onClose} icon={<RiCloseCircleFill />} fontSize="32px" bg="none" />
                         </Flex>
                         <Container centerContent mt="3rem">
                             <Flex flexDir="column" justifyContent="center">
@@ -80,6 +79,6 @@ const MobileDrawer = () => {
                     </DrawerBody>
                 </DrawerContent>
             </Drawer>
-        </>
+        </Box>
     )
 }
