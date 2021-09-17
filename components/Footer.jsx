@@ -9,7 +9,7 @@ export default function Footer() {
             <Image src="/divider.png" alt="Divider" />
             <Flex my="4rem" flexDir="column">
                 <Text>
-                    © {new Date().getFullYear()}. Made by <a href="http://github.com/safin-sys">Safin</a>.
+                    © {new Date().getFullYear()}. Made by <a href="http://github.com/safin-sys" target="_blank">Safin</a>.
                 </Text>
                 <Flex justifyContent="space-between" fontSize="1.2rem" mt="1rem">
                     <AiOutlineTwitter />
