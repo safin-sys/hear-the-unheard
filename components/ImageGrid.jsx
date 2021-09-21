@@ -6,7 +6,7 @@ const gridList = ["Campaings", "News", "Success Story", "Photo Gallery", "Impact
 
 export default function ImageGrid() {
     return (
-        <Box display={["flex", "flex", "grid"]} flexDir="column" my="4rem" gridAutoRows={["300px", "300px", "300px", "400px"]}>
+        <Box display={["flex", "flex", "grid"]} flexDir="column" gridAutoRows={["300px", "300px", "300px", "400px"]}>
             {gridList.map((title, i) => {
                 return <Img src={`/images/${i+1}.jpg`} alt={i+1} title={title} />
             })}

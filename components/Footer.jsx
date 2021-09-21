@@ -5,7 +5,7 @@ import { AiOutlineTwitter, AiFillFacebook, AiFillYoutube, AiOutlineBehance } fro
 export default function Footer() {
     console.log();
     return (
-        <Container as="footer" centerContent>
+        <Container as="footer" centerContent mt="4rem">
             <Image src="/divider.png" alt="Divider" />
             <Flex my="4rem" flexDir="column">
                 <Text>
