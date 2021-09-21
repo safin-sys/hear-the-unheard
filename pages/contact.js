@@ -1,12 +1,12 @@
-import { Box, Grid, Heading, Text } from '@chakra-ui/layout'
+import { Box, Container, Grid, Heading, Text } from '@chakra-ui/layout'
 import Hero from '../components/Hero'
 
 export default function Contact() {
     return (
-        <>
+        <Container maxW="container.xl">
             <Hero children={<HeroText />} />
-            <Grid templateColumns={["1fr", "1fr", "1fr 1fr"]} mb="4rem">
-                <Box mx={["2rem", "4rem"]}>
+            <Grid templateColumns={["1fr", "1fr", "1fr 1fr"]} mb="4rem" gap="2rem">
+                <Box>
                     <Heading>Contact</Heading>
                     <Text mt="2rem">
                         We choose to go to the moon in this decade and do the other things, not because they are easy.
@@ -18,19 +18,19 @@ export default function Contact() {
                         <span style={{ color: "#939393" }}>Hours</span>: 6:00 am – 2:00 am
                     </Text>
                 </Box>
-                <Box mx={["2rem", "4rem"]}>
+                <Box>
                     Form Coming Sooon
                 </Box>
             </Grid>
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7305.517742083455!2d90.38176359443852!3d23.72030344367396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b9c6186bdc6f%3A0xf8370e32aaa0761d!2sHear%20the%20Unheard!5e0!3m2!1sen!2sbd!4v1632257395895!5m2!1sen!2sbd"
-                width="80%"
+                width="100%"
                 height="450"
                 style={{border:0, marginInline: "auto"}}
                 allowfullscreen=""
                 loading="lazy">
             </iframe>
-        </>
+        </Container>
     )
 }
 

@@ -34,8 +34,8 @@ const NavLinks = () => {
     return (
         <>
             {paths.map((path, i) => {
-                const isActive = router.route === path || router.route === "/" && path === "Home"
-                const link = path.toLowerCase() === "home" ? "/" : path.toLowerCase()
+                const isActive = router.route === "/" && path === "Home" || router.route === "/" + path.toLowerCase()
+                const link = path.toLowerCase() === "home" ? "/" : "/" + path.toLowerCase()
                 return (
                     <Box display={["none", "none", "block"]} color={isActive ? "#939393" : "inherit"} key={i} _hover={{ color: "#939393" }} mr="2.5rem">
                         <NextLink href={link}>
