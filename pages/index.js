@@ -5,7 +5,7 @@ import ImageGrid from '../components/ImageGrid'
 export default function Home() {
 	return (
 		<>
-			<Hero children={<HeroText />} />
+			<Hero kids={<HeroText />} />
 			<ImageGrid />
 		</>
 	)

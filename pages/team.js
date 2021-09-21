@@ -5,7 +5,7 @@ import TeamGrid from '../components/TeamGrid'
 export default function Team() {
     return (
         <>
-            <Hero children={<HeroText />} />
+            <Hero kids={<HeroText />} />
             <TeamGrid />
         </>
     )

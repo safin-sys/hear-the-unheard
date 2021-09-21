@@ -4,7 +4,7 @@ import Hero from '../components/Hero'
 export default function Contact() {
     return (
         <Container maxW="container.xl">
-            <Hero children={<HeroText />} />
+            <Hero kids={<HeroText />} />
             <Grid templateColumns={["1fr", "1fr", "1fr 1fr"]} mb="4rem" gap="2rem">
                 <Box>
                     <Heading>Contact</Heading>
@@ -27,7 +27,6 @@ export default function Contact() {
                 width="100%"
                 height="450"
                 style={{border:0, marginInline: "auto"}}
-                allowfullscreen=""
                 loading="lazy">
             </iframe>
         </Container>
@@ -37,7 +36,7 @@ export default function Contact() {
 const HeroText = () => {
     return (
         <Text as="h1" fontSize="2rem" textAlign="center" mb="80px">
-            Let's do some<br />
+            Let{"'"}s do some<br />
             amazing <Heading as="p" display="inline">work</Heading> together
         </Text>
     )

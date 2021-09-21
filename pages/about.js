@@ -5,7 +5,7 @@ import Hero from "../components/Hero";
 export default function About() {
     return (
         <>
-            <Hero children={<HeroText />} />
+            <Hero kids={<HeroText />} />
             <Image objectFit="cover" h={["200px", "500px"]} w="100%" objectPosition="0 50%" src="/grid/7.jpg" alt="Frog" />
             <Container mt={["2rem", "4rem"]}>
                 <Heading>About Toads</Heading>
@@ -18,7 +18,7 @@ export default function About() {
                     <br /><br />
                     In scientific taxonomy, toads are found in the families Bufonidae, Bombinatoridae, Calyptocephalellidae, Discoglossidae, Myobatrachidae, Pelobatidae, Rhinophrynidae, Scaphiopodidae, and Microhylidae.
                     <br /><br />
-                    Usually the largest of the bumps on the skin of a toad are those that cover the parotoid glands. The bumps are commonly called warts, but they have nothing to do with pathologic warts, being fixed in size, present on healthy specimens, and not caused by infection. It's a myth that handling toads causes warts.
+                    Usually the largest of the bumps on the skin of a toad are those that cover the parotoid glands. The bumps are commonly called warts, but they have nothing to do with pathologic warts, being fixed in size, present on healthy specimens, and not caused by infection. It{"'"}s a myth that handling toads causes warts.
                 </Text>
             </Container>
         </>
