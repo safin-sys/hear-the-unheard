@@ -6,7 +6,7 @@ export default function About() {
     return (
         <>
             <Hero kids={<HeroText />} />
-            <Image objectFit="cover" h={["200px", "500px"]} w="100%" objectPosition="0 50%" src="/grid/7.jpg" alt="Frog" />
+            <Image objectFit="cover" h={["200px", "500px"]} w="100%" objectPosition="0 50%" src="images/grid/7.jpg" alt="Frog" />
             <Container mt={["2rem", "4rem"]}>
                 <Heading>About Toads</Heading>
                 <Text mt="2rem">

@@ -9,7 +9,7 @@ export default function TeamGrid() {
         <div>
             <Box display={["flex", "flex", "grid"]} gridTemplateColumns="repeat(3, 1fr)" flexDir="column">
                 {teammates.map((name, i) => {
-                    return <Img key={i} src={`/team/${name}.webp`} alt={i + 1} name={name} />
+                    return <Img key={i} src={`/images/team/${name}.webp`} alt={i + 1} name={name} />
                 })}
             </Box>
         </div>

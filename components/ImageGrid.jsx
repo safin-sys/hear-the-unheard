@@ -8,7 +8,7 @@ export default function ImageGrid() {
     return (
         <Box display={["flex", "flex", "grid"]} flexDir="column" gridAutoRows={["300px", "300px", "300px", "400px"]}>
             {gridList.map((title, i) => {
-                return <Img key={i} src={`/grid/${i+1}.jpg`} alt={i+1} title={title} />
+                return <Img key={i} src={`/images/grid/${i+1}.jpg`} alt={i+1} title={title} />
             })}
         </Box>
     )
