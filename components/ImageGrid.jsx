@@ -2,24 +2,24 @@ import { Box, Container, Flex, Grid, Heading, Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/react";
 import NextLink from "next/link"
 
+const gridList = ["Campaings", "News", "Success Story", "Photo Gallery", "Impacts", "Documentaries", "Research", "Join", "Team", "About"]
+
 export default function ImageGrid() {
     return (
         <Box display={["flex", "flex", "grid"]} flexDir="column" my="4rem" gridAutoRows={["300px", "300px", "300px", "400px"]}>
-            <Img src={`/images/1.jpg`} alt="1" gc="1/3" />
-            <Img src={`/images/2.jpg`} alt="2" />
-            <Img src={`/images/3.jpg`} alt="3" />
-            <Img src={`/images/4.jpg`} alt="4" />
-            <Img src={`/images/5.jpg`} alt="5" />
-            <Img src={`/images/6.jpg`} alt="6" />
-            <Img src={`/images/7.jpg`} alt="7" gc="2/4" />
-            <Img src={`/images/8.jpg`} alt="8" gc="1/3" gr="4/6" />
-            <Img src={`/images/9.jpg`} alt="9" />
-            <Img src={`/images/10.jpg`} alt="10" />
+            {gridList.map((title, i) => {
+                return <Img src={`/images/${i+1}.jpg`} alt={i+1} title={title} />
+            })}
         </Box>
     )
 }
 
-const Img = ({ src, alt, gc, gr }) => {
+const Img = ({ src, alt, title }) => {
+    const gc =  title === "Campaings" && "1/3" ||
+                title === "Photo Gallery" && "2/4" ||
+                title === "Documentaries" && "1/3"
+
+    const gr = title === "Photo Gallery" && "2/4"
     return (
         <Box gridColumn={gc && gc} gridRow={gr && gr} pos="relative" cursor="pointer">
             <NextLink href={`/${alt}`}>
@@ -40,8 +40,7 @@ const Img = ({ src, alt, gc, gr }) => {
                 _hover={{ opacity: "1" }}
             >
                 <Flex flexDir="column" textAlign="center" alignItems="center" justifyContent="center" h="100%">
-                    <Heading fontSize="1.5rem" fontWeight="medium">Animals</Heading>
-                    <Text maxW="30ch">Animals are cool.</Text>
+                    <Heading fontSize="1.5rem" fontWeight="medium">{title}</Heading>
                 </Flex>
             </Box>
         </Box>

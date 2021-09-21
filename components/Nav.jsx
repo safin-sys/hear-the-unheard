@@ -35,9 +35,10 @@ const NavLinks = () => {
         <>
             {paths.map((path, i) => {
                 const isActive = router.route === path || router.route === "/" && path === "Home"
+                const link = path.toLowerCase() === "home" ? "/" : path.toLowerCase()
                 return (
-                    <Box display={["none", "none", "block"]} color={isActive ? "#939393" : "inherit"} key={i} _hover={{color: "#939393"}} mr="2.5rem">
-                        <NextLink href={`/${path.toLowerCase()}`}>
+                    <Box display={["none", "none", "block"]} color={isActive ? "#939393" : "inherit"} key={i} _hover={{ color: "#939393" }} mr="2.5rem">
+                        <NextLink href={link}>
                             {path}
                         </NextLink>
                     </Box>
@@ -64,10 +65,11 @@ const MobileDrawer = () => {
                             <Flex flexDir="column" justifyContent="center">
                                 {paths.map((path, i) => {
                                     const isActive = router.route === path || router.route === "/" && path === "Home"
+                                    const link = path.toLowerCase() === "home" ? "/" : path.toLowerCase()
                                     return (
-                                        <Box color={isActive ? "#939393" : "inherit"} key={i} _hover={{color: "#939393"}}>
+                                        <Box color={isActive ? "#939393" : "inherit"} key={i} _hover={{ color: "#939393" }}>
                                             <Heading fontWeight="medium" textAlign="center" fontSize="1.5rem" my=".5rem">
-                                                <NextLink href={`/${path.toLowerCase()}`}>
+                                                <NextLink href={link}>
                                                     {path}
                                                 </NextLink>
                                             </Heading>
