@@ -20,6 +20,7 @@
   "devDependencies": {
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
+    "formik": "^2.2.9",
     "react-icons": "^4.2.0"
   }
 }

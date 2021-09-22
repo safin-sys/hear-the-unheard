@@ -5,11 +5,8 @@ import NextLink from "next/link"
 import {
     Drawer,
     DrawerBody,
-    DrawerFooter,
-    DrawerHeader,
     DrawerOverlay,
     DrawerContent,
-    DrawerCloseButton,
 } from "@chakra-ui/react"
 import { RiMenu3Fill, RiCloseCircleFill } from "react-icons/ri"
 
@@ -17,7 +14,11 @@ export default function Nav() {
     return (
         <Container maxW={["95vw", "85vw"]} mt="5%" p="0">
             <Flex as="nav" h="80px" justifyContent="space-between" alignItems="center">
-                <Image h="70px" src="/logo.jpg" alt="Logo" />
+                <NextLink href="/">
+                    <a>
+                        <Image h="70px" src="/logo.jpg" alt="Logo" />
+                    </a>
+                </NextLink>
                 <Flex listStyleType="none" fontWeight="medium">
                     <NavLinks />
                     <MobileDrawer />
@@ -27,7 +28,7 @@ export default function Nav() {
     )
 }
 
-const paths = ["Home", "Service", "About", "Team", "Blog", "Contact"]
+const paths = ["Home", "About", "Team", "Join", "Contact"]
 
 const NavLinks = () => {
     const router = useRouter()
@@ -51,6 +52,9 @@ const NavLinks = () => {
 const MobileDrawer = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const router = useRouter()
+    router.events?.on('routeChangeComplete', () => {
+        onClose()
+    })
     return (
         <Box display={["block", "block", "none"]}>
             <IconButton onClick={onOpen} bg="none" fontSize="32px" icon={<RiMenu3Fill />} />
@@ -64,7 +68,7 @@ const MobileDrawer = () => {
                         <Container centerContent mt="3rem">
                             <Flex flexDir="column" justifyContent="center">
                                 {paths.map((path, i) => {
-                                    const isActive = router.route === path || router.route === "/" && path === "Home"
+                                    const isActive = router.route === "/" && path === "Home" || router.route === "/" + path.toLowerCase()
                                     const link = path.toLowerCase() === "home" ? "/" : path.toLowerCase()
                                     return (
                                         <Box color={isActive ? "#939393" : "inherit"} key={i} _hover={{ color: "#939393" }}>

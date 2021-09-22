@@ -1,4 +1,5 @@
 import { Box, Container, Grid, Heading, Text } from '@chakra-ui/layout'
+import ContactForm from '../components/ContactForm'
 import Hero from '../components/Hero'
 
 export default function Contact() {
@@ -18,8 +19,8 @@ export default function Contact() {
                         <span style={{ color: "#939393" }}>Hours</span>: 6:00 am – 2:00 am
                     </Text>
                 </Box>
-                <Box>
-                    Form Coming Sooon
+                <Box mt={4}>
+                    <ContactForm />
                 </Box>
             </Grid>
             <iframe
