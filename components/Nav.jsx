@@ -28,7 +28,7 @@ export default function Nav() {
     )
 }
 
-const paths = ["Home", "About", "Team", "Join", "Contact"]
+const paths = ["Home", "About", "News", "Team", "Join", "Contact"]
 
 const NavLinks = () => {
     const router = useRouter()
