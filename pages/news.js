@@ -1,4 +1,4 @@
-import { Grid, Heading, Text } from "@chakra-ui/layout";
+import { Container, Grid, Heading, Text } from "@chakra-ui/layout";
 import Hero from "../components/Hero";
 import NewsCategories from "../components/NewsCategories";
 import Post from "../components/Post";
@@ -7,15 +7,17 @@ export default function News() {
     return (
         <>
             <Hero kids={<HeroText />} />
-            {/* <NewsCategories /> */}
-            <Grid gridTemplateColumns={["1fr", "1fr 1fr", "1fr 1fr 1fr"]}>
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-            </Grid>
+            <Container maxW="container.xl">
+                <NewsCategories />
+                <Grid gridTemplateColumns={["1fr", "1fr 1fr", "1fr 1fr 1fr"]} gap="1rem">
+                    <Post />
+                    <Post />
+                    <Post />
+                    <Post />
+                    <Post />
+                    <Post />
+                </Grid>
+            </Container>
         </>
     )
 }
