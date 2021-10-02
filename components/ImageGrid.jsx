@@ -3,7 +3,7 @@ import { Image } from "@chakra-ui/react";
 import NextLink from "next/link"
 import slug from "../helper/slug";
 
-const gridList = ["Campaings", "News", "Success Story", "Photo Gallery", "Blog", "Documentaries", "Research", "Join", "Team", "About"]
+const gridList = ["Campaigns", "News", "Success Story", "Photo Gallery", "Blog", "Documentaries", "Research", "Join", "Team", "About"]
 
 export default function ImageGrid() {
     return (
