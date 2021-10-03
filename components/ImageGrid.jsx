@@ -16,7 +16,7 @@ export default function ImageGrid() {
 }
 
 const Img = ({ src, title }) => {
-    const gc = title === "Campaings" && "1/3" ||
+    const gc = title === "Campaigns" && "1/3" ||
         title === "Photo Gallery" && "2/4" ||
         title === "Documentaries" && "1/3"
 
