@@ -43,9 +43,9 @@ export default function Join() {
                 <Heading>Openings</Heading>
                 <Container maxW="container.lg">
                     <Flex mt="3rem" flexWrap="wrap" justifyContent={["center", "center", "space-between"]}>
-                        {jobs.map((job, i) => {
+                        {jobs && jobs[0] ? jobs.map((job, i) => {
                             return <JobCard key={i} job={job} />
-                        })}
+                        }) : <NoJob />}
                     </Flex>
                 </Container>
             </Container>
@@ -59,5 +59,13 @@ const HeroText = () => {
             Work with us <br />
             helping <Heading as="p" display="inline">people</Heading> in need
         </Text>
+    )
+}
+
+const NoJob = () => {
+    return (
+        <Container centerContent>
+            <Text>No openings available at the moment.</Text>
+        </Container>
     )
 }
