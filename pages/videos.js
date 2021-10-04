@@ -10,7 +10,7 @@ export default function Videos() {
 
     useEffect(() => {
         (videos && !videos[0]) && fetch(url).then(res => res.json()).then(data => setVideos(data.items))
-    }, [url])
+    }, [])
 
     return (
         <>

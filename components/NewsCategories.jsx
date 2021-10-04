@@ -48,7 +48,7 @@ const Category = ({ info }) => {
     return (
         <Box overflow="hidden" mr="1.5rem" minW="300px" pos="relative" _last={{marginRight: '0'}} mb=".5rem">
             <Heading pos="absolute" color="white" p="1rem" fontSize="1.5rem" zIndex="1">{info.title}</Heading>
-            <Image src={info.src} objectFit="cover" w="300px" h="150px" _hover={{ transform: "scale3d(1, 1, 1)" }} transform="scale3d(1.05, 1.05, 1)" transition="transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s" />
+            <Image src={info.src} alt={info.title} objectFit="cover" w="300px" h="150px" _hover={{ transform: "scale3d(1, 1, 1)" }} transform="scale3d(1.05, 1.05, 1)" transition="transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s" />
         </Box>
     )
 }
