@@ -3,7 +3,7 @@ import { Image } from "@chakra-ui/react";
 import NextLink from "next/link"
 import slug from "../helper/slug";
 
-const gridList = ["Campaigns", "News", "Success Story", "Photos", "Blog", "Documentaries", "Research", "Join", "Team", "About"]
+const gridList = ["Campaigns", "News", "Success Story", "Photos", "Blog", "Videos", "Research", "Join", "Team", "About"]
 
 export default function ImageGrid() {
     return (
@@ -18,7 +18,7 @@ export default function ImageGrid() {
 const Img = ({ src, title }) => {
     const gc = title === "Campaigns" && "1/3" ||
         title === "Photos" && "2/4" ||
-        title === "Documentaries" && "1/3"
+        title === "Videos" && "1/3"
 
     const gr = title === "Photos" && "2/4"
     return (

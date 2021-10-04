@@ -4,7 +4,7 @@ import Hero from "../components/Hero";
 
 export default function Photos() {
     return (
-        <div>
+        <>
             <Hero kids={<HeroText />} />
             <Grid gridTemplateColumns={["1fr", "1fr 1fr", "1fr 1fr 1fr"]}>
                 <Image src="/images/grid/1.jpg" alt="1" objectFit="cover" h="100%" />
@@ -17,7 +17,7 @@ export default function Photos() {
                 <Image src="/images/grid/8.jpg" alt="8" objectFit="cover" h="100%" />
                 <Image src="/images/grid/9.jpg" alt="9" objectFit="cover" h="100%" />
             </Grid>
-        </div>
+        </>
     )
 }
 
