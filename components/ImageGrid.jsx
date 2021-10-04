@@ -2,10 +2,7 @@ import { Box, Flex, Heading } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/react";
 import NextLink from "next/link"
 import slug from "../helper/slug";
-import imageBuilder from '@sanity/image-url'
-import client from "../helper/sanity";
-
-const gridList = ["Campaigns", "News", "Success Story", "Photos", "Blog", "Videos", "Research", "Join", "Team", "About"]
+import { urlFor } from "../helper/sanity";
 
 export default function ImageGrid({ images }) {
     return (
@@ -19,9 +16,6 @@ export default function ImageGrid({ images }) {
 
 const Img = ({ info }) => {
     const { category, image } = info
-
-    const builder = imageBuilder(client)
-    const urlFor = (src) => builder.image(src)
 
     const gc = category === "Campaigns" && "1/3" ||
         category === "Photos" && "2/4" ||

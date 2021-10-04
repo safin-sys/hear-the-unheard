@@ -1,25 +1,28 @@
 import { Image } from "@chakra-ui/image";
 import { Container, Heading, Text } from "@chakra-ui/layout";
 import Hero from "../components/Hero";
+import client, { urlFor } from "../helper/sanity";
+import RichText from '@sanity/block-content-to-react'
 
-export default function About() {
+export const getStaticProps = async () => {
+    const about = await client.fetch("*[_type == 'about'][0]")
+    return {
+        props: {
+            about
+        }
+    }
+}
+
+export default function About({ about }) {
+    const { main_image, title, description } = about
+    console.log(main_image, title, description);
     return (
         <>
             <Hero kids={<HeroText />} />
-            <Image objectFit="cover" h={["200px", "500px"]} w="100%" objectPosition="0 50%" src="images/grid/7.jpg" alt="Frog" />
+            <Image objectFit="cover" h={["200px", "500px"]} w="100%" objectPosition="0 50%" src={urlFor(main_image)} alt={title} />
             <Container mt={["2rem", "4rem"]}>
-                <Heading>About Toads</Heading>
-                <Text mt="2rem">
-                    Toad is a common name for certain frogs, especially of the family Bufonidae, that are characterized by dry, leathery skin, short legs, and large bumps covering the parotoid glands.
-                    <br /><br />
-                    A distinction between frogs and toads is not made in scientific taxonomy, but is common in popular culture (folk taxonomy), in which toads are associated with drier, rougher skin and more terrestrial habitats.
-                    <br /><br />
-                    In scientific taxonomy, toads include the true toad and various false toads including Ansonia malayana and Telmatobufo.
-                    <br /><br />
-                    In scientific taxonomy, toads are found in the families Bufonidae, Bombinatoridae, Calyptocephalellidae, Discoglossidae, Myobatrachidae, Pelobatidae, Rhinophrynidae, Scaphiopodidae, and Microhylidae.
-                    <br /><br />
-                    Usually the largest of the bumps on the skin of a toad are those that cover the parotoid glands. The bumps are commonly called warts, but they have nothing to do with pathologic warts, being fixed in size, present on healthy specimens, and not caused by infection. It{"'"}s a myth that handling toads causes warts.
-                </Text>
+                <Heading mb="2rem">{title}</Heading>
+                <RichText blocks={description} />
             </Container>
         </>
     )

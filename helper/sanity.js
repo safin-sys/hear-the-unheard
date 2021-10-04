@@ -1,4 +1,5 @@
 import sanityClient from '@sanity/client'
+import imageBuilder from '@sanity/image-url'
 
 const client = sanityClient({
     projectId: 'h32vxuts',
@@ -8,3 +9,5 @@ const client = sanityClient({
 })
 
 export default client
+const builder = imageBuilder(client)
+export const urlFor = (src) => builder.image(src)
