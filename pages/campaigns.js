@@ -58,9 +58,9 @@ const Slide = () => {
 
 const Card = ({ src }) => {
     return (
-        <Box w={["100%", "250px"]} pos="relative" mx="auto">
-            <Image src={src} w={["100%", "250px"]} h="220px" objectFit="cover" />
-            <Grid bgColor="	hsl(148, 100%, 29%, 60%)" pos="absolute" zIndex="1" top="0" h="220px" w={["100%", "250px"]} placeContent="center" opacity="0" _hover={{ opacity: "1" }} transition=".2s opacity ease">
+        <Box w={["100%", "300px"]} pos="relative" mx="auto">
+            <Image src={src} w={["100%", "300px"]} h="220px" objectFit="cover" />
+            <Grid bgColor="	hsl(148, 100%, 29%, 60%)" pos="absolute" zIndex="1" top="0" h="220px" w={["100%", "300px"]} placeContent="center" opacity="0" _hover={{ opacity: "1" }} transition=".2s opacity ease">
                 <Heading fontSize="1rem" fontWeight="medium" color="white" textAlign="center" p="1rem">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus totam illo id beatae est eius eum tenetur enim, similique molestias. Velit, error ea laborum at libero maiores ex ullam quaerat?
                 </Heading>
