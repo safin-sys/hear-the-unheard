@@ -1,12 +1,23 @@
 import { Heading, Text } from '@chakra-ui/layout'
 import Hero from '../components/Hero'
 import ImageGrid from '../components/ImageGrid'
+import client from "../helper/sanity"
 
-export default function Home() {
+export const getStaticProps = async () => {
+    const images = await client.fetch("*[_type == 'home'][0]['image_grid']")
+    return {
+        props: {
+            images
+        }
+    }
+}
+
+export default function Home({ images }) {
+	console.log(images);
 	return (
 		<>
 			<Hero kids={<HeroText />} />
-			<ImageGrid />
+			<ImageGrid images={images} />
 		</>
 	)
 }

@@ -19,6 +19,9 @@
     "swiper": "^7.0.7"
   },
   "devDependencies": {
+    "@sanity/block-content-to-react": "^3.0.0",
+    "@sanity/client": "^2.19.0",
+    "@sanity/image-url": "^1.0.1",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
     "formik": "^2.2.9",

@@ -1,31 +1,37 @@
-import { Box, Container, Flex, Grid, Heading, Text } from "@chakra-ui/layout";
+import { Box, Flex, Heading } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/react";
 import NextLink from "next/link"
 import slug from "../helper/slug";
+import imageBuilder from '@sanity/image-url'
+import client from "../helper/sanity";
 
 const gridList = ["Campaigns", "News", "Success Story", "Photos", "Blog", "Videos", "Research", "Join", "Team", "About"]
 
-export default function ImageGrid() {
+export default function ImageGrid({ images }) {
     return (
         <Box display={["flex", "flex", "grid"]} flexDir="column" gridAutoRows={["300px", "300px", "300px", "400px"]}>
-            {gridList.map((title, i) => {
-                return <Img key={i} src={`/images/grid/${i + 1}.jpg`} title={title} />
+            {images?.map((image, i) => {
+                return <Img key={i} info={image} />
             })}
         </Box>
     )
 }
 
-const Img = ({ src, title }) => {
-    const gc = title === "Campaigns" && "1/3" ||
-        title === "Photos" && "2/4" ||
-        title === "Videos" && "1/3"
+const Img = ({ info }) => {
+    const { category, image } = info
 
-    const gr = title === "Photos" && "2/4"
+    const builder = imageBuilder(client)
+    const urlFor = (src) => builder.image(src)
+
+    const gc = category === "Campaigns" && "1/3" ||
+        category === "Photos" && "2/4" ||
+        category === "Videos" && "1/3"
+    const gr = category === "Photos" && "2/4"
     return (
         <Box gridColumn={gc && gc} gridRow={gr && gr} pos="relative" cursor="pointer">
-            <NextLink href={`/${slug(title)}`}>
+            <NextLink href={`/${slug(category)}`}>
                 <a>
-                    <Image w="100%" h="100%" objectFit="cover" src={src} alt={title} />
+                    <Image w="100%" h="100%" objectFit="cover" src={urlFor(image)} alt={category} />
 
                     <Box
                         pos="absolute"
@@ -40,7 +46,7 @@ const Img = ({ src, title }) => {
                         _hover={{ opacity: "1" }}
                     >
                         <Flex flexDir="column" textAlign="center" alignItems="center" justifyContent="center" h="100%">
-                            <Heading fontSize="1.5rem" fontWeight="medium">{title}</Heading>
+                            <Heading fontSize="1.5rem" fontWeight="medium">{category}</Heading>
                         </Flex>
                     </Box>
                 </a>
