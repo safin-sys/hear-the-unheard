@@ -27,7 +27,7 @@ const Img = ({ info }) => {
         <Box gridColumn={gc && gc} gridRow={gr && gr} pos="relative" cursor="pointer">
             <NextLink href={`/${slug(category)}`}>
                 <a>
-                    <Image {...imageProps} alt={category} objectFit="cover" />
+                    <Image {...imageProps} alt={category} objectFit="cover" layout="fill" />
                     <Box
                         pos="absolute"
                         top="0"
