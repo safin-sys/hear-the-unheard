@@ -1,12 +1,13 @@
 import { Box, Flex, Heading } from "@chakra-ui/layout";
-import { Image } from "@chakra-ui/react";
 import NextLink from "next/link"
 import slug from "../helper/slug";
-import { urlFor } from "../helper/sanity";
+import client, { urlFor } from "../helper/sanity";
+import { useNextSanityImage } from "next-sanity-image";
+import Image from 'next/image'
 
 export default function ImageGrid({ images }) {
     return (
-        <Box display={["flex", "flex", "grid"]} flexDir="column" gridAutoRows={["300px", "300px", "300px", "400px"]}>
+        <Box display="grid" gridTemplateColumns={["1fr", "1fr 1fr 1fr"]} gridAutoRows={["300px", "300px", "300px", "400px"]} overflow="hidden">
             {images?.map((image, i) => {
                 return <Img key={i} info={image} />
             })}
@@ -16,6 +17,7 @@ export default function ImageGrid({ images }) {
 
 const Img = ({ info }) => {
     const { category, image } = info
+    const imageProps = useNextSanityImage(client, image)
 
     const gc = category === "Campaigns" && "1/3" ||
         category === "Photos" && "2/4" ||
@@ -25,8 +27,7 @@ const Img = ({ info }) => {
         <Box gridColumn={gc && gc} gridRow={gr && gr} pos="relative" cursor="pointer">
             <NextLink href={`/${slug(category)}`}>
                 <a>
-                    <Image w="100%" h="100%" objectFit="cover" src={urlFor(image)} alt={category} />
-
+                    <Image {...imageProps} alt={category} objectFit="cover" />
                     <Box
                         pos="absolute"
                         top="0"
