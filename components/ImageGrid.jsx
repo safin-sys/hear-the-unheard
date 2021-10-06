@@ -24,7 +24,7 @@ const Img = ({ info }) => {
         category === "Videos" && "1/3"
     const gr = category === "Photos" && "2/4"
     return (
-        <Box gridColumn={gc && gc} gridRow={gr && gr} pos="relative" cursor="pointer">
+        <Box gridColumn={["inherit", gc && gc]} gridRow={["inherit", gr && gr]} pos="relative" cursor="pointer">
             <NextLink href={`/${slug(category)}`}>
                 <a>
                     <Image {...imageProps} alt={category} objectFit="cover" layout="fill" />
