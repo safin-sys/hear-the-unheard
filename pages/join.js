@@ -1,46 +1,24 @@
 import { Container, Flex, Heading, Text } from "@chakra-ui/layout";
 import Hero from "../components/Hero";
 import JobCard from "../components/JobCard";
+import client from "../helper/sanity"
 
-const jobs = [
-    {
-        title: "Front-end Developer",
-        place: "Lal Bagh, Dhaka",
-        type: "full time"
-    },
-    {
-        title: "Back-end Developer",
-        place: "Dhanmondi, Dhaka",
-        type: "part time"
-    },
-    {
-        title: "Manager",
-        place: "Pantopath, Dhaka",
-        type: "full time"
-    },
-    {
-        title: "Lead Designer",
-        place: "Gulshan, Dhaka",
-        type: "remote"
-    },
-    {
-        title: "Hotline Operator",
-        place: "Pantopath, Dhaka",
-        type: "volunteer"
-    },
-    {
-        title: "Research Intern",
-        place: "Pantopath, Dhaka",
-        type: "volunteer"
-    },
-]
+export const getStaticProps = async () => {
+    const joinInfo = await client.fetch("*[_type == 'join'][0]")
+    return {
+        props: {
+            joinInfo
+        }
+    }
+}
 
-export default function Join() {
+export default function Join({ joinInfo }) {
+    const { title, jobs } = joinInfo
     return (
         <>
             <Hero kids={<HeroText />} />
             <Container maxW={["95vw", "85vw"]}>
-                <Heading>Openings</Heading>
+                <Heading>{title}</Heading>
                 <Container maxW="container.lg">
                     <Flex mt="3rem" flexWrap="wrap" justifyContent={["center", "center", "space-between"]}>
                         {jobs && jobs[0] ? jobs.map((job, i) => {
