@@ -1,25 +1,26 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/react"
 import { Image } from "@chakra-ui/image"
-import { AiFillDribbbleSquare, AiFillGooglePlusSquare, AiOutlineInstagram } from "react-icons/ai"
+import SocialButtonsContainer from "react-social-media-buttons"
+import { urlFor } from "../helper/sanity";
 
-const teammates = ["Annie", "Bob", "Chris", "Christina", "Leonard", "Steve"]
-
-export default function TeamGrid() {
+export default function TeamGrid({ members }) {
     return (
         <div>
             <Box display={["flex", "flex", "grid"]} gridTemplateColumns="repeat(3, 1fr)" flexDir="column">
-                {teammates.map((name, i) => {
-                    return <Img key={i} src={`/images/team/${name.toLowerCase()}.webp`} alt={name} name={name} />
+                {members.map((member, i) => {
+                    return <Img key={i} member={member} />
                 })}
             </Box>
         </div>
     )
 }
 
-const Img = ({ src, alt, name }) => {
+const Img = ({ member }) => {
+    console.log(member);
+    const { description, image, name, social } = member
     return (
         <Box>
-            <Image w="100%" h="400px" objectFit="cover" src={src} alt={alt} />
+            <Image w="100%" h="400px" objectFit="cover" src={urlFor(image)} alt={name} />
             <Box
                 background="black"
                 color="white"
@@ -27,12 +28,13 @@ const Img = ({ src, alt, name }) => {
             >
                 <Flex flexDir="column" textAlign="center" alignItems="center" justifyContent="center" h="100%">
                     <Heading fontSize="1.5rem" fontWeight="medium">{name}</Heading>
-                    <Text maxW="40ch" my=".5rem">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam ex qui est omnis odit, eveniet consectetur.</Text>
-                    <Flex mt="1rem" justifyContent="space-between" w="100px" fontSize="1.5rem" borderRadius="50%">
-                        <AiFillGooglePlusSquare />
-                        <AiFillDribbbleSquare />
-                        <AiOutlineInstagram />
-                    </Flex>
+                    <Text maxW="40ch" mt=".5rem" mb="1rem" overflow="hidden" textOverflow="ellipsis" display="-webkit-box" style={{ WebkitLineClamp: 3, WebkitBoxOrient: "vertical" }}>{description}</Text>
+                    {social && <SocialButtonsContainer
+                        links={social}
+                        buttonStyle={{ width: '32px', height: '32px', margin: '0px 0px', backgroundColor: '#000000' }}
+                        iconStyle={{ color: '#ffffff' }}
+                        openNewTab={true}
+                    />}
                 </Flex>
             </Box>
         </Box>

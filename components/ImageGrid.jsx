@@ -1,7 +1,7 @@
 import { Box, Flex, Heading } from "@chakra-ui/layout";
 import NextLink from "next/link"
 import slug from "../helper/slug";
-import client, { urlFor } from "../helper/sanity";
+import client from "../helper/sanity";
 import { useNextSanityImage } from "next-sanity-image";
 import Image from 'next/image'
 

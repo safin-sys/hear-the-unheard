@@ -1,12 +1,22 @@
 import { Heading, Text } from '@chakra-ui/layout'
 import Hero from '../components/Hero'
 import TeamGrid from '../components/TeamGrid'
+import client from '../helper/sanity'
 
-export default function Team() {
+export const getStaticProps = async () => {
+    const members = await client.fetch("*[_type == 'team'][0]['team_members']")
+    return {
+        props: {
+            members
+        }
+    }
+}
+
+export default function Team({ members }) {
     return (
         <>
             <Hero kids={<HeroText />} />
-            <TeamGrid />
+            <TeamGrid members={members} />
         </>
     )
 }
