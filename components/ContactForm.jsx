@@ -5,7 +5,7 @@ import { Input } from "@chakra-ui/input";
 export default function ContactForm() {
     return (
         <form
-            action="https://formspree.io/f/mbjqbvqz"
+            action="https://formspree.io/f/mgerqgpb"
             method="POST"
         >
             <FormControl>
