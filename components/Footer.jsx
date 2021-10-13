@@ -1,14 +1,11 @@
-import { Image } from "@chakra-ui/image";
 import { Container, Flex, Text } from "@chakra-ui/layout";
 import { AiOutlineTwitter, AiFillFacebook, AiFillYoutube, AiOutlineBehance } from "react-icons/ai"
 import Ladder from "./Ladder";
 
 export default function Footer() {
-    console.log();
     return (
         <Container as="footer" centerContent mt="4rem">
             <Ladder />
-            {/* <Image src="/divider.png" alt="Divider" /> */}
             <Flex my="4rem" flexDir="column">
                 <Text>
                     © {new Date().getFullYear()}. Made by <a href="http://github.com/safin-sys" target="_blank" rel="noreferrer">Safin</a>.
