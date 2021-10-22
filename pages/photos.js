@@ -20,11 +20,17 @@ export default function Photos({ images }) {
             <Hero kids={<HeroText />} />
             <Grid gridTemplateColumns={["1fr", "1fr 1fr", "1fr 1fr 1fr"]}>
                 {images.map((info, i) => {
-                    const imageProps = useNextSanityImage(client, info.image)
-                    return <Image key={i} {...imageProps} alt={info.image_name} objectFit="cover" height="1800" />
+                    return <Img key={i} info={info} />
                 })}
             </Grid>
         </>
+    )
+}
+
+const Img = ({ info }) => {
+    const imageProps = useNextSanityImage(client, info.image)
+    return (
+        <Image {...imageProps} alt={info.image_name} objectFit="cover" height="1800" />
     )
 }
 
