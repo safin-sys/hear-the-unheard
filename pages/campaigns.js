@@ -46,7 +46,6 @@ export default function Campaigns({ info }) {
 }
 
 const Slide = ({ images }) => {
-    console.log(images);
     return (
         <Swiper
             modules={[Autoplay, Navigation, Pagination]}
@@ -68,7 +67,6 @@ const Slide = ({ images }) => {
 }
 
 const Card = ({ campaign }) => {
-    console.log(campaign);
     const { description, image, title } = campaign
     return (
         <Box w={["100%", "300px"]} pos="relative" mx="auto">
