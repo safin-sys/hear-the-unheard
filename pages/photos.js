@@ -1,21 +1,28 @@
-import { Image } from "@chakra-ui/image";
+import Image from "next/image";
 import { Grid, Heading, Text } from "@chakra-ui/layout";
+import { useNextSanityImage } from "next-sanity-image";
 import Hero from "../components/Hero";
+import client from "../helper/sanity";
 
-export default function Photos() {
+export const getStaticProps = async () => {
+    const images = await client.fetch("*[_type == 'photos'][0]['images']")
+    return {
+        props: {
+            images
+        }
+    }
+}
+
+export default function Photos({ images }) {
+    console.log(images);
     return (
         <>
             <Hero kids={<HeroText />} />
             <Grid gridTemplateColumns={["1fr", "1fr 1fr", "1fr 1fr 1fr"]}>
-                <Image src="/images/grid/1.jpg" alt="1" objectFit="cover" h="100%" />
-                <Image src="/images/grid/2.jpg" alt="2" objectFit="cover" h="100%" />
-                <Image src="/images/grid/3.jpg" alt="3" objectFit="cover" h="100%" />
-                <Image src="/images/grid/4.jpg" alt="4" objectFit="cover" h="100%" />
-                <Image src="/images/grid/5.jpg" alt="5" objectFit="cover" h="100%" />
-                <Image src="/images/grid/6.jpg" alt="6" objectFit="cover" h="100%" />
-                <Image src="/images/grid/7.jpg" alt="7" objectFit="cover" h="100%" />
-                <Image src="/images/grid/8.jpg" alt="8" objectFit="cover" h="100%" />
-                <Image src="/images/grid/9.jpg" alt="9" objectFit="cover" h="100%" />
+                {images.map((info, i) => {
+                    const imageProps = useNextSanityImage(client, info.image)
+                    return <Image key={i} {...imageProps} alt={info.image_name} objectFit="cover" height="1800" />
+                })}
             </Grid>
         </>
     )
