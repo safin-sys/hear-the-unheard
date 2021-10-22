@@ -6,6 +6,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { Image } from '@chakra-ui/image';
 import { Heading, Container, Box, Grid, Flex } from '@chakra-ui/layout'
+import client, { urlFor } from '../helper/sanity';
 
 const list = [
     "https://www.unicef.org/sites/default/files/styles/hero_desktop/public/UN0310595-bluewash.jpg?itok=PLWmZduZ",
@@ -18,16 +19,25 @@ const list = [
     "https://image.isu.pub/150804133431-cc7a59a9bae6a76811a398bebe4c07f4/jpg/page_1.jpg"
 ]
 
+export const getStaticProps = async () => {
+    const info = await client.fetch("*[_type == 'campaigns'][0]")
+    return {
+        props: {
+            info
+        }
+    }
+}
 
-export default function Campaigns() {
+export default function Campaigns({ info }) {
+    const { campaigns, image_slider } = info
     return (
         <>
-            <Slide />
+            <Slide images={image_slider} />
             <Container maxW="container.xl" my="4rem">
                 <Heading>Our Campaigns</Heading>
                 <Grid gridTemplateColumns={["1fr", "1fr 1fr", "1fr 1fr 1fr 1fr"]} mt="1rem" gap="2rem 1rem">
-                    {list.map((src, i) => {
-                        return <Card src={src} key={i} />
+                    {campaigns.map((campaign, i) => {
+                        return <Card campaign={campaign} key={i} />
                     })}
                 </Grid>
             </Container>
@@ -35,7 +45,8 @@ export default function Campaigns() {
     )
 }
 
-const Slide = () => {
+const Slide = ({ images }) => {
+    console.log(images);
     return (
         <Swiper
             modules={[Autoplay, Navigation, Pagination]}
@@ -47,27 +58,29 @@ const Slide = () => {
                 disableOnInteraction: false
             }}
         >
-            {list.map((src, i) => {
+            {images.map((info, i) => {
                 return <SwiperSlide key={i}>
-                    <Image src={src} alt={i} objectFit="cover" w="100%" h={["50vh", "60vh", "80vh"]} />
+                    <Image src={urlFor(info.image)} alt={info.image_name} objectFit="cover" w="100%" h={["50vh", "60vh", "80vh"]} />
                 </SwiperSlide>
             })}
         </Swiper>
     )
 }
 
-const Card = ({ src }) => {
+const Card = ({ campaign }) => {
+    console.log(campaign);
+    const { description, image, title } = campaign
     return (
         <Box w={["100%", "300px"]} pos="relative" mx="auto">
-            <Image src={src} alt={src} w={["100%", "300px"]} h="220px" objectFit="cover" />
+            <Image src={urlFor(image)} alt={title} w={["100%", "300px"]} h="220px" objectFit="cover" />
             <Grid bgColor="	hsl(148, 100%, 29%, 60%)" pos="absolute" zIndex="1" top="0" h="220px" w={["100%", "300px"]} placeContent="center" opacity="0" _hover={{ opacity: "1" }} transition=".2s opacity ease">
                 <Heading fontSize="1rem" fontWeight="medium" color="white" textAlign="center" p="1rem">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus totam illo id beatae est eius eum tenetur enim, similique molestias. Velit, error ea laborum at libero maiores ex ullam quaerat?
+                    {description}
                 </Heading>
             </Grid>
             <Box bgColor="#009444">
                 <Heading fontSize="1rem" fontWeight="medium" color="white" textAlign="center" p="1rem">
-                    Improving Well Being of Ethnic Women and Girls in Chattogram Hill Tracks.
+                    {title}
                 </Heading>
             </Box>
         </Box>
