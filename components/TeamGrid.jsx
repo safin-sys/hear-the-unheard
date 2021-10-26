@@ -1,12 +1,13 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/react"
-import { Image } from "@chakra-ui/image"
+import { useNextSanityImage } from "next-sanity-image";
+import Image from "next/image"
 import SocialButtonsContainer from "react-social-media-buttons"
-import { urlFor } from "../helper/sanity";
+import client from "../helper/sanity";
 
 export default function TeamGrid({ members }) {
     return (
         <div>
-            <Box display={["flex", "flex", "grid"]} gridTemplateColumns="repeat(3, 1fr)" flexDir="column">
+            <Box display="grid" gridTemplateColumns={["1fr", "1fr 1fr", "1fr 1fr 1fr"]} gridAutoRows={["500px", "600px"]}>
                 {members.map((member, i) => {
                     return <Img key={i} member={member} />
                 })}
@@ -17,13 +18,18 @@ export default function TeamGrid({ members }) {
 
 const Img = ({ member }) => {
     const { description, image, name, social } = member
+    const imageProps = useNextSanityImage(client, image)
+    const { blurDataURL, src } = imageProps
     return (
-        <Box>
-            <Image w="100%" h="400px" objectFit="cover" src={urlFor(image)} alt={name} />
+        <Box pos="relative" mb="200px">
+            <Image src={src} placeholder="blur" blurDataURL={blurDataURL} alt={name} objectFit="cover" layout="fill" />
             <Box
                 background="black"
                 color="white"
                 h="200px"
+                pos="absolute"
+                bottom="-200px"
+                w="100%"
             >
                 <Flex flexDir="column" textAlign="center" alignItems="center" justifyContent="center" h="100%">
                     <Heading fontSize="1.5rem" fontWeight="medium">{name}</Heading>

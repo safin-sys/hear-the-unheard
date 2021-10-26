@@ -23,10 +23,10 @@ const Img = ({ info }) => {
         category === "Photos" && "2/4" ||
         category === "Videos" && "1/3"
     const gr = category === "Photos" && "2/4"
-    const { blurDataURL, loader, src } = imageProps
+    const { blurDataURL, src } = imageProps
     return (
         <Box gridColumn={["inherit", gc && gc]} gridRow={["inherit", gr && gr]} pos="relative" cursor="pointer">
-            <Image src={src} loader={loader} blurDataURL={blurDataURL} alt={category} objectFit="cover" layout="fill" />
+            <Image src={src} placeholder="blur" blurDataURL={blurDataURL} alt={category} objectFit="cover" layout="fill" />
             <NextLink href={`/${slug(category)}`}>
                 <a>
                     <Box
