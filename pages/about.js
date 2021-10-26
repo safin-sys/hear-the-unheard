@@ -15,7 +15,6 @@ export const getStaticProps = async () => {
 
 export default function About({ about }) {
     const { main_image, title, description } = about
-    console.log(main_image, title, description);
     return (
         <>
             <Hero kids={<HeroText />} />

@@ -14,7 +14,6 @@ export const getStaticProps = async () => {
 }
 
 export default function Photos({ images }) {
-    console.log(images);
     return (
         <>
             <Hero kids={<HeroText />} />

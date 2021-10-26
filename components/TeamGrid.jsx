@@ -16,7 +16,6 @@ export default function TeamGrid({ members }) {
 }
 
 const Img = ({ member }) => {
-    console.log(member);
     const { description, image, name, social } = member
     return (
         <Box>
