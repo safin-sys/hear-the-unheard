@@ -1,7 +1,7 @@
 html,
 body {
   padding: 0;
-  margin: 0;
+margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -13,4 +13,40 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.block li {
+  list-style-position: inside;
+  margin: .5rem auto;
+}
+
+.block h1 {
+  font-size: large;
+  font-weight: 700;
+  margin: 1rem auto;
+}
+.block h2 {
+  font-size: medium;
+  font-weight: 700;
+  margin: 1rem auto;
+}
+.block h3 {
+  font-size: medium;
+  font-weight: 700;
+  margin: 1rem auto;
+}
+.block h4 {
+  font-size: medium;
+  font-weight: 700;
+  margin: 1rem auto;
+}
+.block h5 {
+  font-size: medium;
+  font-weight: 700;
+  margin: 1rem auto;
+}
+.block h6 {
+  font-size: medium;
+  font-weight: 700;
+  margin: 1rem auto;
 }

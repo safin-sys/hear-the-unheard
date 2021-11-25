@@ -21,7 +21,7 @@ export default function About({ about }) {
             <Image objectFit="cover" h={["200px", "500px"]} w="100%" objectPosition="0 50%" src={urlFor(main_image)} alt={title} />
             <Container mt={["2rem", "4rem"]}>
                 <Heading mb="2rem">{title}</Heading>
-                <RichText blocks={description} />
+                <RichText className="block" blocks={description} />
             </Container>
         </>
     )

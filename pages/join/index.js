@@ -1,7 +1,7 @@
 import { Container, Flex, Heading, Text } from "@chakra-ui/layout";
-import Hero from "../components/Hero";
-import JobCard from "../components/JobCard";
-import client from "../helper/sanity"
+import Hero from "../../components/Hero";
+import JobCard from "../../components/JobCard";
+import client from "../../helper/sanity"
 
 export const getStaticProps = async () => {
     const joinInfo = await client.fetch("*[_type == 'join'][0]")
@@ -14,6 +14,7 @@ export const getStaticProps = async () => {
 
 export default function Join({ joinInfo }) {
     const { title, jobs } = joinInfo
+    console.log(joinInfo);
     return (
         <>
             <Hero kids={<HeroText />} />

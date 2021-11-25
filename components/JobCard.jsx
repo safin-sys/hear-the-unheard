@@ -11,7 +11,7 @@ export default function JobCard({ job }) {
     return (
         <Grid mx="auto" my="1rem" templateColumns="1fr .1fr" w="310px" p="1rem" shadow="md" bgColor="#00001">
             <Box>
-                <Heading fontSize="1.25rem">{position}</Heading>
+                <Heading fontSize="1.25rem" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis" w="17ch">{position}</Heading>
                 <Text>{location}</Text>
                 <NextLink href={'/join/' + _key}>
                     <a>
@@ -20,7 +20,7 @@ export default function JobCard({ job }) {
                 </NextLink>
             </Box>
             <Box ml="1rem">
-                <Badge colorScheme={badgeColor}>{capitalType.toUpperCase()}</Badge>
+                <Badge colorScheme={badgeColor}>{capitalType}</Badge>
             </Box>
         </Grid>
     )
