@@ -32,7 +32,6 @@ const Img = ({ info }) => {
             return `/${slug(category)}`
         }
     }
-    console.log(handleNextLink());
     return (
         <Box gridColumn={["inherit", gc && gc]} gridRow={["inherit", gr && gr]} pos="relative" cursor="pointer">
             <Image src={src} placeholder="blur" blurDataURL={blurDataURL} alt={category} objectFit="cover" layout="fill" />

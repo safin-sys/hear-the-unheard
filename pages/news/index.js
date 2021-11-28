@@ -29,7 +29,6 @@ export default function News({ news, categories }) {
     const router = useRouter();
     const { id } = router.query;
     const post = newsWithCategoryName.filter(post => post.categoryName === id);
-    console.log(post);
     return (
         <>
             <Hero kids={<HeroText />} />

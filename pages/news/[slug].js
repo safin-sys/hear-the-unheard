@@ -28,7 +28,6 @@ export const getStaticPaths = async () => {
 }
 
 export default function BlogPost({ post }) {
-    console.log(post);
     const { title, body, mainImage, _createdAt } = post;
     return (
         <div>
