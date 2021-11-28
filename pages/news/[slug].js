@@ -32,8 +32,8 @@ export default function BlogPost({ post }) {
     const { title, body, mainImage, _createdAt } = post;
     return (
         <div>
-            <Image src={urlFor(mainImage)} alt={title} w="100vw" h={["300px","500px", "600px"]} objectFit="cover" />
             <Container mt="8">
+            <Image src={urlFor(mainImage)} alt={title} w="100vw" h={["300px","500px", "600px"]} objectFit="cover" />
                 <Heading>{title}</Heading>
                 <Text my="4" color="#009444">{dayjs(_createdAt).format('DD-MMM-YYYY')}</Text>
                 <RichText className="block" blocks={body} />

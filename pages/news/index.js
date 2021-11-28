@@ -17,10 +17,19 @@ export const getStaticProps = async () => {
 };
 
 export default function News({ news, categories }) {
-    console.log(news);
+    const newsWithCategoryName = news.map(post => {
+        const category = categories.find(
+            category => category._id === post.category._ref
+        );
+        return {
+            ...post,
+            categoryName: category.categoryName
+        };
+    });
     const router = useRouter();
     const { id } = router.query;
-    const post = news.filter(post => post.category._ref === id);
+    const post = newsWithCategoryName.filter(post => post.categoryName === id);
+    console.log(post);
     return (
         <>
             <Hero kids={<HeroText />} />
@@ -40,7 +49,7 @@ export default function News({ news, categories }) {
                         categories.map(category => (
                             category._id === post.category._ref && !id ? (
                                 <Post key={post._id} post={post} category={category.categoryName} />
-                            ) : category._id === id && (
+                            ) : category.categoryName === post.categoryName && (
                                 <Post key={post._id} post={post} category={category.categoryName} />
                             )
                         ))

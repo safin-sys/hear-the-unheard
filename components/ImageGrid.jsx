@@ -24,10 +24,19 @@ const Img = ({ info }) => {
         category === "Videos" && "1/3"
     const gr = category === "Photos" && "2/4"
     const { blurDataURL, src } = imageProps
+    const handleNextLink = () => {
+        const blogCategories = ["Success Story", "Blog", "Research"]
+        if (blogCategories.includes(category)) {
+            return `/news?id=${category}`
+        } else {
+            return `/${slug(category)}`
+        }
+    }
+    console.log(handleNextLink());
     return (
         <Box gridColumn={["inherit", gc && gc]} gridRow={["inherit", gr && gr]} pos="relative" cursor="pointer">
             <Image src={src} placeholder="blur" blurDataURL={blurDataURL} alt={category} objectFit="cover" layout="fill" />
-            <NextLink href={`/${slug(category)}`}>
+            <NextLink href={handleNextLink()}>
                 <a>
                     <Box
                         pos="absolute"

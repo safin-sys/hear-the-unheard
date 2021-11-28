@@ -28,11 +28,10 @@ const Category = ({ cat }) => {
     const handleRoute = () => {
         if (cat._id == "024f61f3-a072-4cbf-ac19-50c6a4ac83e1") {
             router.replace('/news', undefined, { shallow: true });
-            console.log('yolo');
         } else {
             router.push({
                 pathname: "/news",
-                query: { id: cat._id }
+                query: { id: cat.categoryName }
             }, undefined, { shallow: true });
         }
     }
