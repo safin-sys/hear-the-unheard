@@ -28,7 +28,7 @@ const Category = ({ cat }) => {
     const handleRoute = () => {
         router.push({
             pathname: "/news",
-            query: { id: cat._id ===  }
+            query: { id: cat._id}
         }, undefined, { shallow: true });
     }
     return (
