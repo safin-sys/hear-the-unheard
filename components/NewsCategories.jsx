@@ -26,10 +26,15 @@ export default function NewsCategories({ categories }) {
 const Category = ({ cat }) => {
     const router = useRouter();
     const handleRoute = () => {
-        router.push({
-            pathname: "/news",
-            query: { id: cat._id}
-        }, undefined, { shallow: true });
+        if (cat._id == "024f61f3-a072-4cbf-ac19-50c6a4ac83e1") {
+            router.replace('/news', undefined, { shallow: true });
+            console.log('yolo');
+        } else {
+            router.push({
+                pathname: "/news",
+                query: { id: cat._id }
+            }, undefined, { shallow: true });
+        }
     }
     return (
         <Box overflow="hidden" mr="1.5rem" minW="300px" pos="relative" _last={{ marginRight: '0' }} mb=".5rem" onClick={handleRoute}>

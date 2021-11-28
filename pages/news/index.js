@@ -20,7 +20,6 @@ export default function News({ news, categories }) {
     const router = useRouter();
     const { id } = router.query;
     const post = news.filter(post => post.category._ref === id);
-    console.log(post);
     return (
         <>
             <Hero kids={<HeroText />} />
@@ -28,7 +27,7 @@ export default function News({ news, categories }) {
                 <NewsCategories categories={categories} />
                 <Grid gridTemplateColumns={["1fr", "1fr 1fr", "1fr 1fr 1fr"]} gap="1rem">
                     {/* This is the worst code I have ever written, So shit even Github went offline cause it doesn't want to host my code. 3:13am 28-Nov-2021 */}
-                    {!id | id == "024f61f3-a072-4cbf-ac19-50c6a4ac83e1" ? news.map(post => (
+                    {!id ? news.map(post => (
                         categories.map(category => (
                             category._id === post.category._ref && !id ? (
                                 <Post key={post._id} post={post} category={category.categoryName} />
