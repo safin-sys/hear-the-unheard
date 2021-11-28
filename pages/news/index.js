@@ -17,6 +17,7 @@ export const getStaticProps = async () => {
 };
 
 export default function News({ news, categories }) {
+    console.log(news);
     const router = useRouter();
     const { id } = router.query;
     const post = news.filter(post => post.category._ref === id);
