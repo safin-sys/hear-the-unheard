@@ -6,7 +6,7 @@ import Post from "../../components/Post";
 import client from "../../helper/sanity";
 
 export const getStaticProps = async () => {
-    const news = await client.fetch("*[_type == 'blog']");
+    const news = await client.fetch("*[_type == 'blog'] | order(_createdAt desc)");
     const categories = await client.fetch("*[_type == 'blogCategories']");
     return {
         props: {
