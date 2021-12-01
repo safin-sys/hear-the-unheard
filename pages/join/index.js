@@ -14,7 +14,6 @@ export const getStaticProps = async () => {
 
 export default function Join({ joinInfo }) {
     const { title, jobs } = joinInfo
-    console.log(joinInfo);
     return (
         <>
             <Hero kids={<HeroText />} />
