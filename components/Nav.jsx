@@ -16,7 +16,7 @@ export default function Nav() {
             <Flex as="nav" h="80px" justifyContent="space-between" alignItems="center">
                 <NextLink href="/">
                     <a>
-                        <Image h="70px" src="/logo.jpg" alt="Logo" />
+                        <Image h="70px" w="70px" src="/logo.jpg" alt="Logo" />
                     </a>
                 </NextLink>
                 <Flex listStyleType="none" fontWeight="medium">
