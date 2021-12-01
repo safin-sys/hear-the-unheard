@@ -57,13 +57,13 @@ const MobileDrawer = () => {
     })
     return (
         <Box display={["block", "block", "none"]}>
-            <IconButton onClick={onOpen} bg="none" fontSize="32px" icon={<RiMenu3Fill />} />
+            <IconButton aria-label="Menu Open" onClick={onOpen} bg="none" fontSize="32px" icon={<RiMenu3Fill />} />
             <Drawer onClose={onClose} isOpen={isOpen} size="full">
                 <DrawerOverlay />
                 <DrawerContent>
                     <DrawerBody>
                         <Flex justifyContent="end" mt="2rem">
-                            <IconButton onClick={onClose} icon={<RiCloseCircleFill />} fontSize="32px" bg="none" />
+                            <IconButton aria-label="Menu Close" onClick={onClose} icon={<RiCloseCircleFill />} fontSize="32px" bg="none" />
                         </Flex>
                         <Container centerContent mt="3rem">
                             <Flex flexDir="column" justifyContent="center">

@@ -11,16 +11,16 @@ export default function Footer() {
                     © {new Date().getFullYear()}. Made by <a href="http://github.com/safin-sys" target="_blank" rel="noreferrer">Safin</a>.
                 </Text>
                 <Flex justifyContent="space-between" fontSize="1.2rem" mt="1rem">
-                    <a href="https://twitter.com" target="_blank" rel="noreferrer">
+                    <a aria-label="Twitter" href="https://twitter.com" target="_blank" rel="noreferrer">
                         <AiOutlineTwitter />
                     </a>
-                    <a href="https://fb.me" target="_blank" rel="noreferrer">
+                    <a aria-label="Facebook" href="https://fb.me" target="_blank" rel="noreferrer">
                         <AiFillFacebook />
                     </a>
-                    <a href="https://youtu.be" target="_blank" rel="noreferrer">
+                    <a aria-label="Youtube" href="https://youtu.be" target="_blank" rel="noreferrer">
                         <AiFillYoutube />
                     </a>
-                    <a href="https://behance.net/" target="_blank" rel="noreferrer">
+                    <a aria-label="Behance" href="https://behance.net/" target="_blank" rel="noreferrer">
                         <AiOutlineBehance />
                     </a>
                 </Flex>
