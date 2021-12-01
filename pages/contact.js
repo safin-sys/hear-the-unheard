@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Heading, Text } from '@chakra-ui/layout'
+555import { Box, Container, Grid, Heading, Text } from '@chakra-ui/layout'
 import ContactForm from '../components/ContactForm'
 import Hero from '../components/Hero'
 import client from '../helper/sanity'

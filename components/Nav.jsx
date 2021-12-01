@@ -38,7 +38,7 @@ const NavLinks = () => {
                 const isActive = router.route === "/" && path === "Home" || router.route === "/" + path.toLowerCase()
                 const link = path.toLowerCase() === "home" ? "/" : "/" + path.toLowerCase()
                 return (
-                    <Box display={["none", "none", "block"]} color={isActive ? "#939393" : "inherit"} key={i} _hover={{ color: "#939393" }} mr="2.5rem">
+                    <Box display={["none", "none", "block"]} color={isActive ? "#555" : "inherit"} key={i} _hover={{ color: "#555" }} mr="2.5rem">
                         <NextLink href={link}>
                             {path}
                         </NextLink>
@@ -71,7 +71,7 @@ const MobileDrawer = () => {
                                     const isActive = router.route === "/" && path === "Home" || router.route === "/" + path.toLowerCase()
                                     const link = path.toLowerCase() === "home" ? "/" : path.toLowerCase()
                                     return (
-                                        <Box color={isActive ? "#939393" : "inherit"} key={i} _hover={{ color: "#939393" }}>
+                                        <Box color={isActive ? "#555" : "inherit"} key={i} _hover={{ color: "#555" }}>
                                             <Heading fontWeight="medium" textAlign="center" fontSize="1.5rem" my=".5rem">
                                                 <NextLink href={link}>
                                                     {path}
