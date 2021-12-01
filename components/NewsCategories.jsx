@@ -14,15 +14,19 @@ export default function NewsCategories({ categories }) {
                 height: '4px',
             },
             '&::-webkit-scrollbar-thumb': {
-                background: "#39b5a4",
+                background: '#39b5a4',
             },
             // Firefox
-            'scrollbar-color': "#39b5a4",
+            'scrollbar-color': '#39b5a4 aliceblue',
+            'scrollbar-width': 'thin'
+
         }}>
-            {categories.map(cat => {
-                return <Category cat={cat} key={cat._id} />
-            })}
-        </Flex>
+{
+    categories.map(cat => {
+        return <Category cat={cat} key={cat._id} />
+    })
+}
+        </Flex >
     )
 }
 
