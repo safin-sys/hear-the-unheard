@@ -6,6 +6,7 @@ import { urlFor } from "../helper/sanity";
 export default function NewsCategories({ categories }) {
     return (
         <Flex mb="2rem" overflowX="scroll" css={{
+            // Chrome
             '&::-webkit-scrollbar': {
                 height: '6px',
             },
@@ -15,6 +16,8 @@ export default function NewsCategories({ categories }) {
             '&::-webkit-scrollbar-thumb': {
                 background: "#39b5a4",
             },
+            // Firefox
+            'scrollbar-color': "#39b5a4",
         }}>
             {categories.map(cat => {
                 return <Category cat={cat} key={cat._id} />
