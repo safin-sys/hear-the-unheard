@@ -42,8 +42,7 @@ const Iframe = ({ id }) => {
 const HeroText = () => {
     return (
         <Text as="h1" fontSize="2rem" textAlign="center" mb="80px">
-            We are digital crafters from New York. <br />
-            Our passion is <Heading as="p" display="inline">UI & UX</Heading> design & coding.
+            We talk about those who<Heading as="p" display="inline">can't.</Heading>
         </Text>
     )
 }
