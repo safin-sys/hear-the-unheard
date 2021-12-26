@@ -36,7 +36,7 @@ const Img = ({ info }) => {
 const HeroText = () => {
     return (
         <Text as="h1" fontSize="2rem" textAlign="center" mb="80px">
-            We talk about those who<Heading as="p" display="inline">can&apos;t.</Heading>
+            We talk about those who<Heading as="p" display="inline"> can&apos;t.</Heading>
         </Text>
     )
 }
