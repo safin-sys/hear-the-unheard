@@ -1,9 +1,15 @@
 import Head from 'next/head'
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import '../styles/globals.css'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
+const theme = extendTheme({
+	config: {
+		initialColorMode: 'light',
+		useSystemColorMode: false,
+	}
+})
 function MyApp({ Component, pageProps }) {
 	return (
 		<>
@@ -33,7 +39,7 @@ function MyApp({ Component, pageProps }) {
 				<meta name="language" content="English" />
 				<meta name="google-site-verification" content="-A2dkiSDT0tMGBpCvYqOLziRtTDlQP4Y_GVovTCxvo0" />
 			</Head>
-			<ChakraProvider>
+			<ChakraProvider theme={theme}>
 				<Nav />
 				<Component {...pageProps} />
 				<Footer />
