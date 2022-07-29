@@ -1,5 +1,6 @@
 import {
     Box,
+    Container,
     Drawer,
     DrawerBody,
     DrawerCloseButton,
@@ -21,24 +22,31 @@ import { SiFacebook, SiTwitter, SiYoutube } from "react-icons/si";
 
 const Nav = () => {
     return (
-        <Grid
-            templateColumns="repeat(3, 1fr)"
-            as="nav"
-            h="4rem"
-            alignItems="center"
-            fontWeight="bold"
-        >
-            <Image h="4rem" w="4rem" src="/logo.jpg" alt="Logo" />
-            <DesktopLinks />
-            <MobileLinks />
-        </Grid>
+        <>
+            <Box pos="fixed" w="full" left="0">
+                <Container maxW="container.xl">
+                    <Grid
+                        templateColumns="repeat(3, 1fr)"
+                        as="nav"
+                        h="4rem"
+                        alignItems="center"
+                        fontWeight="bold"
+                        bgColor="chakra-body-bg"
+                    >
+                        <Image h="4rem" w="4rem" src="/logo.jpg" alt="Logo" />
+                        <DesktopLinks />
+                        <MobileLinks />
+                    </Grid>
+                </Container>
+            </Box>
+            <Box h="4rem" />
+        </>
     );
 };
 
 export default Nav;
 
 const DesktopLinks = () => {
-    const { colorMode } = useColorMode();
     return (
         <>
             <Flex
@@ -68,7 +76,7 @@ const DesktopLinks = () => {
                         bgColor="blue.500"
                         p=".5rem 2rem"
                         rounded="base"
-                        color={colorMode === "light" ? "white" : "gray.900"}
+                        color="chakra-body-bg"
                     >
                         Join Us
                     </ChakraLink>
@@ -125,7 +133,7 @@ const MobileLinks = () => {
                                     bgColor="blue.500"
                                     p=".5rem 2rem"
                                     rounded="base"
-                                    color={colorMode === "light" ? "white" : "gray.900"}
+                                    color="chakra-body-bg"
                                 >
                                     Join Us
                                 </ChakraLink>
