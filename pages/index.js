@@ -1,9 +1,9 @@
-import { Box } from "@chakra-ui/react"
+import Hero from "../src/components/Hero"
 
 const Home = () => {
 	return (
 		<>
-			<Box bgColor="aliceblue" h="100vh" />
+			<Hero />
 		</>
 	)
 }
